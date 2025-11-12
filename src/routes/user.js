@@ -5,15 +5,15 @@ import {
   getUserById,
   updateUser,
   deleteUser
-} from '../controllers/users.controller.js';
+} from '../controllers/userscontroller.js';
 
 const router = Router();
 
 // Rutas para usuarios
-router.post('/users', createUser);
-router.get('/users', getUsers);
-router.get('/users/:id', getUserById);
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
+router.post('/', createUser);
+router.get('/', getUsers);
+router.get('/:id', getUserById);
+router.put('/:id', updateUser);
+router.delete('/:id', deleteUser);
 
 export default router;

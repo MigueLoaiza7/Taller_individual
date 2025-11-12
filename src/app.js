@@ -1,6 +1,6 @@
 import express from "express";
-import animales from "./routes/user.js"; 
-import registro from "./routes/task.js";
+import user from "./routes/user.js"; 
+import task from "./routes/task.js";
 
 const app = express();
 const PORT = 3000;
@@ -16,3 +16,4 @@ app.listen(PORT, () => {
     console.log(`http://127.0.0.1:${PORT}`);
     console.log(`http://[::]:${PORT}`);
 });
+// http://localhost:3000/task/tasks

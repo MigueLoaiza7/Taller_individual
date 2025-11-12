@@ -6,16 +6,16 @@ import {
   getTasksByUser,
   updateTask,
   deleteTask
-} from '../controllers/tasks.controller.js';
+} from '../controllers/taskscontroller.js';
 
 const router = Router();
 
 // Rutas para tareas
-router.post('/tasks', createTask);
-router.get('/tasks', getTasks);
-router.get('/tasks/:id', getTaskById);
-router.get('/tasks/user/:userId', getTasksByUser);
-router.put('/tasks/:id', updateTask);
-router.delete('/tasks/:id', deleteTask);
+router.post('/', createTask);
+router.get('/', getTasks);
+router.get('/:id', getTaskById);
+router.get('/user/:userId', getTasksByUser);
+router.put('/:id', updateTask);
+router.delete('/:id', deleteTask);
 
 export default router;

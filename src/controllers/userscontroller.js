@@ -1,19 +1,26 @@
-import  PrismaClient  from "../prismaClien";
+import { PrismaClient } from '@prisma/client';  // ✅ Importa Prisma
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient();              // ✅ Crea la instancia
 
-// Crear un usuario
 export const createUser = async (req, res) => {
   try {
-    const { email, name } = req.body;
+    // Obtiene los datos enviados desde Insomnia
+    const { name, email } = req.body;
+
+    // 👇 Aquí es donde va el prisma.user.create
     const user = await prisma.user.create({
-      data: { email, name }
+      data: { name, email },
     });
-    res.status(201).json(user);
+
+    // Responde al cliente con el usuario creado
+    res.json(user);
+
   } catch (error) {
+    console.error(error);
     res.status(400).json({ error: error.message });
   }
 };
+
 
 // Obtener todos los usuarios
 export const getUsers = async (req, res) => {

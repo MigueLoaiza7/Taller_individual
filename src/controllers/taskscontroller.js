@@ -2,19 +2,26 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// Crear una tarea
 export const createTask = async (req, res) => {
   try {
-    const { title, userId } = req.body;
+    const { title, description, completed, user_id } = req.body;
+
     const task = await prisma.task.create({
-      data: { title, userId },
-      include: { user: true }
+      data: {
+        title,
+        description,
+        completed,
+        userId: user_id
+      }
     });
-    res.status(201).json(task);
+
+    res.json(task);
   } catch (error) {
+    console.error(error);
     res.status(400).json({ error: error.message });
   }
 };
+
 
 // Obtener todas las tareas
 export const getTasks = async (req, res) => {
